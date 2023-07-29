@@ -4,14 +4,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+
+    <title>@yield("title", "BikeShop | จําหน่ายอะไหล่จักรยานออนไลน์")</title>
+
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
     <script src="{{ asset('js/jquery-3.7.0.min.js') }}"></script>
+    <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
 </head>
 <body>
     
+    <nav class="navbar navbar-default navbar-static-top">
 
+        
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" > BikeShop</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">หน้าแรก</a></li>
+                    <li><a href="#">ข้อมูลสินค้า</a></li>
+                    <li><a href="#">รายงาน</a></li>
+                </ul>
+            </div>
+
+        
+    </nav> @yield("content")
     {{-- <div class="container">
         <div class="row">
 
@@ -22,7 +42,7 @@
     </div> --}}
 
     
-    <nav class="navbar navbar-default navbar-static-top">
+    {{-- <nav class="navbar navbar-default navbar-static-top">
 
         <div class="container">
             <div class="navbar-header">
@@ -119,7 +139,7 @@
         <button class="btn btn-primary">เข้าสู่ระบบ</button>
     </div>
 
-    <br><br>
+    <br><br> --}}
 {{-- 
     <div class="alert alert-success alert-dismissable">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
@@ -139,7 +159,7 @@
     </div> --}}
 
     {{-- Font awesome --}}
-    <a href="#" class="btn btn-default" ><i class="fa fa-home"></i> หน้าหลัก </a>
+    {{-- <a href="#" class="btn btn-default" ><i class="fa fa-home"></i> หน้าหลัก </a>
     <a href="#" class="btn btn-primary"><i class="fa fa-save"></i> บันทึก</a>
     <a href="#" class="btn btn-info"><i class="fa fa-edit"></i> แก้ไข</a>
     <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> ลบ</a>
@@ -168,13 +188,13 @@
                 }
                 toastr["error"]("Data", "Failed")
         })
-    </script>
+    </script> --}}
 
     {{-- Toastr --}}
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         toastr.success("บันทึกข้อมูลสำเร็จ");
         toastr.error("ไม่สามารถบันทึกข้อมูลได้" );
-    </script>
+    </script> --}}
 
 
     {{-- font awesome --}}
