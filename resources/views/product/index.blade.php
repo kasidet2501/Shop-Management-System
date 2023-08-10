@@ -12,7 +12,7 @@
                 <!-- search form -->
                 <form action="{{ URL::to('product/search') }}" method="post" class="form-inline">
                     {{ csrf_field() }}
-                    <input type="text" name="q" class="form-control" placeholder="...">
+                    <input type="text" name="q" class="form-control" placeholder="พิมพ์รหัสหรือชื่อเพื่อค้นหา">
                     <button type="submit" class="btn btn-primary">ค้นหา</button>
                 </form>
             </div>

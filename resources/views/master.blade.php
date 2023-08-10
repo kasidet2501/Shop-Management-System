@@ -21,19 +21,27 @@
 
 
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"> BikeShop</a>
+            <a class="navbar-brand" href="#"> <i class="fa-sharp fa-solid fa-person-biking fa-bounce fa-2xl"
+                    style="color: #005eff;"></i></a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#">หน้าแรก</a></li>
                 <li><a href="{{ URL::to('product') }}">ข้อมูลสินค้า </a></li>
+                <li><a href="{{ URL::to('category') }}">ข้อมูลประเภทสินค้า </a></li>
                 <li><a href="#">รายงาน</a></li>
             </ul>
         </div>
 
 
-    </nav> @yield('content')
+    </nav>
+
+    <center>
+        <h2><u>นายกษิดิ์เดช บุณยศักดานนท์ 6406021622141</u></h2>
+    </center>
+
+    @yield('content')
 
     <!-- js -->
     @if (session('msg'))

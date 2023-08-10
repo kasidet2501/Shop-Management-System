@@ -45,7 +45,7 @@ class ProductController extends Controller
         // ทําการส่งข้อมูลไปยังวิว ด้วยคําสั่ง with() โดยใช้ชื่ออ้างอิงเป็น product ชื่อเดิม
         return view('product/edit')
         ->with('product', $product)
-        ->with('categories', $categories);;
+        ->with('categories', $categories);
     }
 
     public function update(Request $request){

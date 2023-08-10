@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap");
+
+* {
+    font-family: "Prompt", sans-serif;
+}
 .bs-table {
     margin: 0;
 }
 .bs-table thead tr th {
     color: #fff;
-    background-color: #999;
+    background-color: #1c5bd1;
 }
 .bs-table .bs-price {
     text-align: right;
