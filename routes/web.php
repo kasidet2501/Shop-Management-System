@@ -24,6 +24,13 @@ Route::get('/product/edit/{id?}', [ProductController::class, 'edit']);
 // update จะถูกเรียกจาก action form ของ edit.blade.php
 Route::post('/product/update', [ProductController::class, 'update']);
 
+// insert
+Route::post('/product/add', [ProductController::class, 'insert']);
+
+// remove
+Route::get('/product/remove/{id}', [ProductController::class, 'remove']);
+
+
 
 
 

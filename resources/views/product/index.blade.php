@@ -14,8 +14,15 @@
                     {{ csrf_field() }}
                     <input type="text" name="q" class="form-control" placeholder="พิมพ์รหัสหรือชื่อเพื่อค้นหา">
                     <button type="submit" class="btn btn-primary">ค้นหา</button>
+                    {{-- ต้องไปที่ product/edit ในส่วนที่จะไป controller ก่อน เพื่อจะเช็คว่า
+                        หลัง path URL ของ  product/edit นั้นมี id ตามหลังมาด้วยหรือไม่
+                        ถ้าไม่มีจะทำการให้ไปที่ view ของ product/add เพื่อทำการเพิ่มข้อมูลสินค้าต่อไป --}}
+                    <a href="{{ URL::to('product/edit') }}" class="btn btn-success pull-right">เพิ่มสินค้า</a>
+
                 </form>
             </div>
+
+
 
             <table class="table table-bordered bs-table">
                 <thead>
@@ -33,7 +40,7 @@
                     {{-- ตัวแปร products ที่ถูกส่งมาจาก controller ไงครับ --}}
                     @foreach ($products as $p)
                         <tr>
-                            <td>{{ $p->image_url }}</td>
+                            <td><img src="{{ $p->image_url }}" width="50px"></td>
                             <td>{{ $p->code }}</td>
                             <td>{{ $p->name }}</td>
                             <td>{{ $p->category->name }}</td>
@@ -42,7 +49,8 @@
                             <td class="bs-center">
                                 <a href="{{ URL::to('product/edit/' . $p->id) }}" class="btn btn-info"><i
                                         class="fa fa-edit"></i> แก้ไข</a>
-                                <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> ลบ</a>
+                                <a href="#" class="btn btn-danger btn-delete" id-delete="{{ $p->id }}"><i
+                                        class="fa fa-trash"></i> ลบ</a>
                             </td>
                         </tr>
                     @endforeach
@@ -63,6 +71,17 @@
 
         {{ $products->links() }}
     </div>
+
+
+    <script>
+        // ใช้เทคนิค jQuery
+        $('.btn-delete').on('click', function() {
+            if (confirm("คุณต้องการลบข้อมูลสินค้าหรือไม่?")) {
+                var url = "{{ URL::to('product/remove') }}" + '/' + $(this).attr('id-delete');
+                window.location.href = url;
+            }
+        });
+    </script>
 
 
 @endsection
