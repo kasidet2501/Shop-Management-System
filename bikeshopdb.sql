@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 10, 2023 at 01:19 PM
+-- Generation Time: Aug 17, 2023 at 02:34 PM
 -- Server version: 8.0.17
 -- PHP Version: 7.3.10
 
@@ -43,9 +43,7 @@ INSERT INTO `category` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'อะไหล่นะจ๊ะ', NULL, '2023-08-10 05:57:03'),
 (2, 'เครื่องสำอางนะ', NULL, '2023-08-10 06:18:16'),
 (3, 'รองเท้าสุดเฟี้ยว', NULL, '2023-08-10 06:08:59'),
-(4, 'แว่นตาโคตรเท่', NULL, '2023-08-10 06:08:48'),
-(5, 'อุปกรณ์เสริม', NULL, NULL),
-(6, 'อิเล็กทรอนิกส์', NULL, NULL);
+(11, 'ทดลองเพิ่มประเภท', '2023-08-17 07:34:12', '2023-08-17 07:34:12');
 
 -- --------------------------------------------------------
 
@@ -140,8 +138,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `code`, `name`, `category_id`, `price`, `stock_qty`, `image_url`, `created_at`, `updated_at`) VALUES
-(2, 'P002', 'เสือหมอบ วินเทจ Cannello Silvia', 1, 5500.00, 4, NULL, NULL, '2023-08-09 09:46:12'),
-(3, 'P003', 'เสือหมอบ Panther March', 2, 6000.00, 2, NULL, NULL, '2023-08-10 06:07:23');
+(2, 'P002', 'เสือหมอบ วินเทจ Cannello Silvia', 1, 5500.00, 4, 'upload/images/เสือหมอบวินเทจ-Cannello-Silvia.jpg', NULL, '2023-08-12 10:40:36'),
+(3, 'P003', 'เสือหมอบ Panther March', 2, 6000.00, 2, 'upload/images/เสือหมอบ Panther March.jpg', NULL, '2023-08-12 10:41:12'),
+(5, 'P007', 'รถเต่าแต่งลายซิ่ง', 3, 2900.00, 5, 'upload/images/vespa.jpg', '2023-08-12 11:31:43', '2023-08-12 11:31:43');
 
 -- --------------------------------------------------------
 
@@ -219,7 +218,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -243,7 +242,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`

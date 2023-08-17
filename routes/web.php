@@ -46,3 +46,9 @@ Route::get('/category/edit/{id?}', [CategoryController::class, 'edit']);
 
 // update จะถูกเรียกจาก action form ของ edit.blade.php
 Route::post('/category/update', [CategoryController::class, 'update']);
+
+// insert
+Route::post('/category/add', [CategoryController::class, 'insert']);
+
+// remove
+Route::get('/category/remove/{id}', [CategoryController::class, 'remove']);

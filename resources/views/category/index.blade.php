@@ -15,6 +15,8 @@
                     {{ csrf_field() }}
                     <input type="text" name="q" class="form-control" placeholder="พิมพ์รหัสหรือชื่อเพื่อค้นหา">
                     <button type="submit" class="btn btn-primary">ค้นหา</button>
+
+                    <a href="{{ URL::to('category/edit') }}" class="btn btn-success pull-right">เพิ่มสินค้า</a>
                 </form>
             </div>
 
@@ -35,7 +37,8 @@
                             <td class="bs-center">
                                 <a href="{{ URL::to('category/edit/' . $c->id) }}" class="btn btn-info"><i
                                         class="fa fa-edit"></i> แก้ไข</a>
-                                <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> ลบ</a>
+                                <a href="#" class="btn btn-danger btn-delete" id-delete="{{ $c->id }}"><i
+                                        class="fa fa-trash"></i> ลบ</a>
                             </td>
                         </tr>
                     @endforeach
@@ -50,6 +53,14 @@
     </div>
 
 
-
+    <script>
+        // ใช้เทคนิค jQuery
+        $('.btn-delete').on('click', function() {
+            if (confirm("คุณต้องการลบข้อมูลประเภทสินค้าหรือไม่?")) {
+                var url = "{{ URL::to('category/remove') }}" + '/' + $(this).attr('id-delete');
+                window.location.href = url;
+            }
+        });
+    </script>
 
 @endsection
