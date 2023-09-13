@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\ProductControllerApi;
+use App\Http\Controllers\Api\CategoryControllerApi;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// -----------------> Product <----------------------
+// Get all or Get by category
+Route::get('/product/{category_id?}',[ProductControllerApi::class,'product_list']);
+
+// Search
+// Route::get('/product/search',[ProductControllerApi::class,'product_search']);
+Route::post('/product/search',[ProductControllerApi::class,'product_search']);
+
+// -----------------> Category <----------------------
+Route::get('/category',[CategoryControllerApi::class,'category_list']);

@@ -16,3 +16,33 @@
 .bs-table .bs-center {
     text-align: center;
 }
+.bs-product-card {
+    min-height: 360px;
+    text-align: center;
+    position: relative;
+}
+
+.bs-product-card img {
+    height: 180px;
+    /* margin-top: 10px; */
+    margin: 10px auto;
+    display: block;
+}
+
+.bs-product-card .btn-success {
+    position: absolute;
+    bottom: 15px;
+    width: calc(100% - 30px);
+}
+
+.bs-product-card h4 {
+    text-align: left;
+}
+
+.bs-product-card .form-group {
+    text-align: left;
+}
+
+.bs-product-card .form-group strong {
+    font-size: 16px;
+}
