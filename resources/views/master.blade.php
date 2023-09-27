@@ -33,6 +33,12 @@
                 <li><a href="{{ URL::to('category') }}">ข้อมูลประเภทสินค้า </a></li>
                 <li><a href="#">รายงาน</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ URL::to('cart/view') }}"><i class="fa fa-shopping-cart"></i> ตะกร้า
+                        <span class="label label-danger">
+                            {!! count(Session::get('cart_items')) !!}
+                        </span>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            </ul>
         </div>
 
 

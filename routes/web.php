@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CartController;
+use App\Http\Middleware\CartMiddleware;
 
 
 Route::get('/', function () {
@@ -34,8 +36,6 @@ Route::post('/product/add', [ProductController::class, 'insert']);
 Route::get('/product/remove/{id}', [ProductController::class, 'remove']);
 
 
- 
-
 
 // -----------------> Category <----------------------
 Route::get('/category', [CategoryController::class, 'index']);
@@ -55,3 +55,16 @@ Route::post('/category/add', [CategoryController::class, 'insert']);
 
 // remove
 Route::get('/category/remove/{id}', [CategoryController::class, 'remove']);
+
+// -----------------> Cart <----------------------
+Route::get('/cart/view', [CartController::class, 'viewCart']);
+
+Route::get('/cart/add/{id}', [CartController::class, 'addToCart']);
+
+Route::get('/cart/delete/{id}', [CartController::class, 'deleteCart']);
+
+Route::get('/cart/update/{id}/{qty}', [CartController::class, 'updateCart']);
+
+Route::middleware([CartMiddleware::class])->group(function(){
+    Route::get('/cart/update/{id}/{qty}', [CartController::class, 'updateCart']);
+});
