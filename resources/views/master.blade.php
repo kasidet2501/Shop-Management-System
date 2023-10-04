@@ -28,16 +28,35 @@
 
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ URL::to('home') }}">หน้าแรก</a></li>
-                <li><a href="{{ URL::to('product') }}">ข้อมูลสินค้า </a></li>
-                <li><a href="{{ URL::to('category') }}">ข้อมูลประเภทสินค้า </a></li>
-                <li><a href="#">รายงาน</a></li>
+                <li><a href="{{ URL::to('home') }}">หน้าแรก</a></li>@guest
+                    <li><a href="{{ URL::to('product') }}">ข้อมูลสินค้า </a></li>
+                    <li><a href="{{ URL::to('category') }}">ข้อมูลประเภทสินค้า </a></li>
+                <li><a href="#">รายงาน</a></li>@endguest
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            {{-- <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ URL::to('cart/view') }}"><i class="fa fa-shopping-cart"></i> ตะกร้า
                         <span class="label label-danger">
-                            {!! count(Session::get('cart_items')) !!}
+                            @if (Session::has('cart_items'))
+                                {!! count(Session::get('cart_items')) !!}
                         </span>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            @else
+                {{ count([]) }}
+                @endif
+            </ul> --}}
+            <ul class="nav navbar-nav navbar-right"> @guest
+                    <li><a href="{{ URL::to('cart/view') }}"><i class="fa fa-shopping-cart"></i> ตะกร้า
+                            <span class="label label-danger">
+                                @if (Session::has('cart_items'))
+                                    {!! count(Session::get('cart_items')) !!}
+                            </span>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                @else
+                    {{ count([]) }}
+                    @endif
+                    <li><a href="{{ route('login') }}">ล็อกอิน</a></li>
+                    <li><a href="{{ route('register') }}">ลงทะเบียน</a></li>
+                @else
+                    <li><a href="#">{{ Auth::user()->name }} </a></li>
+                <li><a href="#">ออกจากระบบ </a>&nbsp;&nbsp;&nbsp;&nbsp;</li> @endguest
             </ul>
         </div>
 

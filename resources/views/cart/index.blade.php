@@ -19,7 +19,8 @@
                             <th width="100px">รหัส</th>
                             <th width="500px">ชื่อสินค้า </th>
                             <th width="200px">จํานวน</th>
-                            <th width="100px">ราคา</th>
+                            <th width="100px">ราคาต่อชิ้น</th>
+                            <th width="100px">ราคารวม</th>
                             <th width="50px"></th>
                         </tr>
                     </thead>
@@ -36,6 +37,7 @@
                                 {{-- updateCart ในที่นี้ไม่ได้ไปที่ Controller แต่จะไปที่ script ที่ด้านล่างโดยจะส่ง parameterไป 2 ตัว --}}
                                 {{-- this คือค่าใน tag นั้นๆ ในที่นี้คือ value="{{ $c['qty'] }} --}}
                                 <td>{{ number_format($c['price'], 0) }}</td>
+                                <td>{{ number_format($c['price'] * $c['qty'], 0) }}</td>
 
                                 <td>
                                     <a href="{{ URL::to('cart/delete/' . $c['id']) }}" class="btn btn-danger"><i
@@ -43,7 +45,7 @@
                                 </td>
 
                             </tr>
-                            <?php $sum_price += $c['price']; ?>
+                            <?php $sum_price += $c['price'] * $c['qty']; ?>
                             <?php $sum_qty += $c['qty']; ?>
                         @endforeach
                     </tbody>

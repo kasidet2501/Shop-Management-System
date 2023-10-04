@@ -68,3 +68,8 @@ Route::get('/cart/update/{id}/{qty}', [CartController::class, 'updateCart']);
 Route::middleware([CartMiddleware::class])->group(function(){
     Route::get('/cart/update/{id}/{qty}', [CartController::class, 'updateCart']);
 });
+
+// ---------------------> Authentication <---------------------
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
