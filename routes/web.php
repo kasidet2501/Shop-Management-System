@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
@@ -73,3 +74,6 @@ Route::middleware([CartMiddleware::class])->group(function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// ---------------------> Logout <---------------------
+Route::get('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'logout']);

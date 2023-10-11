@@ -43,7 +43,41 @@
                 {{ count([]) }}
                 @endif
             </ul> --}}
+
             <ul class="nav navbar-nav navbar-right"> @guest
+                <li><a href="{{ route('login') }}">ล็อกอิน</a></li>
+                <li><a href="{{ route('register') }}">ลงทะเบียน</a></li>
+            @else
+                <li><a href="#">{{ Auth::user()->name }} </a></li>
+                {{-- <li><a href="#">ออกจากระบบ </a></li> @endguest --}}
+
+                <li><a href="{{ URL::to('logout') }}">ออกจากระบบ </a></li>
+
+                {{-- <li><a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form></li> --}}
+            @endguest
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ URL::to('cart/view') }}"><i class="fa fa-shopping-cart"></i> ตะกร้า
+                    <span class="label label-danger">
+                        @if (Session::has('cart_items'))
+                            {!! count(Session::get('cart_items')) !!}
+                    </span>&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+        @else
+            {{ count([]) }}
+            @endif
+
+        </ul>
+
+            {{-- <ul class="nav navbar-nav navbar-right"> @guest
                     <li><a href="{{ URL::to('cart/view') }}"><i class="fa fa-shopping-cart"></i> ตะกร้า
                             <span class="label label-danger">
                                 @if (Session::has('cart_items'))
@@ -57,7 +91,7 @@
                 @else
                     <li><a href="#">{{ Auth::user()->name }} </a></li>
                 <li><a href="#">ออกจากระบบ </a>&nbsp;&nbsp;&nbsp;&nbsp;</li> @endguest
-            </ul>
+            </ul> --}}
         </div>
 
 
