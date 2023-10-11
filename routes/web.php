@@ -70,6 +70,12 @@ Route::middleware([CartMiddleware::class])->group(function(){
     Route::get('/cart/update/{id}/{qty}', [CartController::class, 'updateCart']);
 });
 
+Route::get('/cart/checkout', [CartController::class, 'checkout']);
+
+Route::get('/cart/complete', [CartController::class, 'complete']);
+
+Route::get('/cart/finish', [CartController::class, 'finish_order']);
+
 // ---------------------> Authentication <---------------------
 Auth::routes();
 
