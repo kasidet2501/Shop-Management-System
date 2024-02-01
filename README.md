@@ -1,6 +1,4 @@
-# Project Name
-
-## Shop Management System
+# Shop Management System
 
 ### Description
 
