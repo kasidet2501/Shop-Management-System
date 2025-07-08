@@ -16,11 +16,6 @@ This project is a web-based Shop Management System developed using the PHP Larav
 <li>View and update the shopping cart.</li>
 <li>Proceed to checkout.</li>
 <li>Generate invoices.</li>
-<li>Screenshots</li>
-
-### Screenshots
-![Screenshot 2023-09-14 111626](https://github.com/gasidet2501/bikeshop/assets/120713339/cfc3e53c-48e3-4779-8731-2903d2d2b160)
-![รวมราคาตระกร้าสินค้า](https://github.com/gasidet2501/bikeshop/assets/120713339/eb59ccc1-0f67-4358-9a9d-0350a8111c5e)
 
 
   
